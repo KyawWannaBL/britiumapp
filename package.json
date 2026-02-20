@@ -1,0 +1,17 @@
+{
+  "name": "britium-enterprise",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm -C apps/web-portal dev",
+    "build": "pnpm -C apps/web-portal build",
+    "lint": "pnpm -C apps/web-portal lint",
+    "gen:permissions": "ts-node scripts/generate-permission-codes.ts",
+    "verify:build": "node scripts/verify-build.mjs",
+    "ci": "node scripts/verify-build.mjs && pnpm --filter web-portal build"
+  }
+}
